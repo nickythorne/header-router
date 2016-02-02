@@ -1,0 +1,19 @@
+{
+  "name": "header-router",
+  "version": "1.0.0",
+  "description": "Node.js express module for routing requests based on predefined header matching patterns.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickythorne/header-router.git"
+  },
+  "author": "Nicky Thorne <self@nickythorne.me> (http://www.nickythorne.me/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickythorne/header-router/issues"
+  },
+  "homepage": "https://github.com/nickythorne/header-router"
+}
