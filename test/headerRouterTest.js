@@ -13,7 +13,7 @@ describe('router', function() {
                 routeHandlerCalled = true;
             });
 
-        headerRouter.route({ headers : { 'content-type' : 'text/html' } });
+        headerRouter.route()({ headers : { 'content-type' : 'text/html' } });
         assert.ok(routeHandlerCalled, 'Route handler called');
 
     });
@@ -27,7 +27,7 @@ describe('router', function() {
                 routeHandlerCalled = true;
             });
 
-        headerRouter.route({ headers : { 'token-bearer' : 'John Doe' } });
+        headerRouter.route()({ headers : { 'token-bearer' : 'John Doe' } });
         assert.notOk(routeHandlerCalled, 'Route handler not called');
 
     });
@@ -41,7 +41,7 @@ describe('router', function() {
                 routeHandlerCalled = true;
             });
 
-        headerRouter.route({ headers : { 'x-forwarded-with' : 'domain: http://www.domain.com; ' } });
+        headerRouter.route()({ headers : { 'x-forwarded-with' : 'domain: http://www.domain.com; ' } });
         assert.ok(routeHandlerCalled, 'Route handler called');
 
     });
@@ -55,7 +55,7 @@ describe('router', function() {
                 routeHandlerCalled = true;
             });
 
-        headerRouter.route({ headers : { 'content-type' : 'application/json; charset: utf8' } });
+        headerRouter.route()({ headers : { 'content-type' : 'application/json; charset: utf8' } });
         assert.ok(routeHandlerCalled, 'Route handler called');
 
     });
@@ -69,7 +69,7 @@ describe('router', function() {
                 routeHandlerCalled = true;
             });
 
-        headerRouter.route({ headers : { 'content-type' : 'text/html; charset: utf8' } });
+        headerRouter.route()({ headers : { 'content-type' : 'text/html; charset: utf8' } });
         assert.notOk(routeHandlerCalled, 'Route handler not called');
 
     });
@@ -85,7 +85,7 @@ describe('router', function() {
                 routeHandlerCalled = true;
             });
 
-        headerRouter.route({ headers : { 'accept-charset' : 'UTF-8' } });
+        headerRouter.route()({ headers : { 'accept-charset' : 'UTF-8' } });
         assert.ok(routeHandlerCalled, 'Route handler not called');
 
     });
@@ -102,7 +102,7 @@ describe('router', function() {
                 routeHandlerCalled = true;
             });
 
-        headerRouter.route({ headers : { 'x-forwarded-host' : 'happydomain.me' } });
+        headerRouter.route()({ headers : { 'x-forwarded-host' : 'happydomain.me' } });
         assert.ok(routeHandlerCalled, 'Route handler not called');
 
     });
@@ -110,11 +110,14 @@ describe('router', function() {
     it('continues router chain if no matches', function() {
 
         var routeHandlerCalled = false;
-        headerRouter.newRule('x-forwarded-host')
+        headerRouter.newRule('x-forwarded-host2')
             .addPredicate({ value : 'evilattacker.org' })
-            .routeTo(function(req, res, next) {});
+            .routeTo(function(req, res, next) {
 
-        headerRouter.route({ headers : { 'x-forwarded-host' : 'happydomain.me' } }, null, function() {
+                var t = 7;
+            });
+
+        headerRouter.route()({ headers : { 'x-forwarded-host2' : 'happydomain.me' } }, null, function() {
             routeHandlerCalled = true;
         });
 
