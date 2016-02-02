@@ -2,9 +2,9 @@
   "name": "header-router",
   "version": "1.0.0",
   "description": "Node.js express module for routing requests based on predefined header matching patterns.",
-  "main": "index.js",
+  "main": "lib/headerRouter.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/nickythorne/header-router/issues"
   },
-  "homepage": "https://github.com/nickythorne/header-router"
+  "homepage": "https://github.com/nickythorne/header-router",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
 }
