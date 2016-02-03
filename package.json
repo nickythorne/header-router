@@ -1,6 +1,6 @@
 {
   "name": "header-router",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Node.js express module for routing requests based on predefined header matching patterns.",
   "main": "lib/headerRouter.js",
   "scripts": {
